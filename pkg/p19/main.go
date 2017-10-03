@@ -1,8 +1,5 @@
-package main
+package p19
 
-import (
-	"fmt"
-)
 
 /**
  * Definition for singly-linked list.
@@ -15,6 +12,8 @@ type ListNode struct {
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	head_ := head
 
+	// find the n-th pointer
 	
+
 	return head_
 }
