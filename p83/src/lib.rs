@@ -19,13 +19,14 @@ pub struct Solution{}
 
 impl Solution {
     pub fn delete_duplicates(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut head = head.clone();
         let mut curr_opt = head.as_mut();
 
         while let Some(cur) = curr_opt {
             let mut next_opt = cur.next.take();
 
-            while let Some(next) = next_opt {
-                if cur.val = next.val {
+            while let Some(next) = next_opt.as_mut() {
+                if cur.val == next.val {
                     next_opt = next.next.take();
                 } else {
                     cur.next = next_opt;
@@ -33,20 +34,9 @@ impl Solution {
                 }
             }
 
-            curr_opt = curr_opt.next.as_mut();
+            curr_opt = cur.next.as_mut();
         }
 
         head
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
     }
 }
